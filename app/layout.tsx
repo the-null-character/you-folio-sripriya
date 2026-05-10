@@ -21,7 +21,12 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Sripriya T — ELT Specialist & Corporate Trainer",
+  title: "Sripriya — ELT Specialist & Corporate Trainer",
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
   description:
     "Portfolio of Sripriya T — experienced ELT freelancer, Cambridge Examiner, corporate trainer and soft skills coach based in Chennai, India.",
   keywords: [
