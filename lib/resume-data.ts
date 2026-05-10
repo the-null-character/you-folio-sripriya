@@ -1,0 +1,107 @@
+export const resumeData = {
+  name: "Sripriya T",
+  title: "ELT Specialist & Corporate Trainer",
+  tagline: "Empowering learners through language, soft skills & professional development.",
+  email: "sripreeya@hotmail.com",
+  phone: "9566027483",
+  location: "Chennai, India",
+  linkedin: "https://www.linkedin.com/",
+  github: "https://github.com/",
+  resumePdf: "/Sripriya-T.pdf",
+
+  about: `Experienced educator and corporate trainer specialising in English instruction, soft skills, and employability training. Skilled in curriculum development and Cambridge exam preparation, I work with diverse learners — from students to professionals. Passionate about creating a positive learning environment and empowering individuals for academic and career success.`,
+
+  experience: [
+    {
+      id: 1,
+      role: "ELT Freelancer",
+      company: "Self-Employed",
+      period: "2016 – Present",
+      location: "Chennai",
+      highlights: [
+        "Cambridge Examiner for proficiency levels Pre-A1 to C2.",
+        "Conducted one-on-one online English language coaching for high school students and adult learners.",
+        "Provided soft skills and employability training for Arts, Science and Engineering institutions.",
+        "Corporate coach for STEP (The Hindu) and Capshine — online and telephonic delivery.",
+        "Presented for Cambridge University Press & Assessment, specialising in ELT and exam preparation.",
+        "Trained students in mock interviews, placement coaching, and professional communication.",
+        "Wrote content for Young Learners English materials at Ebek Pvt. Ltd.",
+        "Presented ELT programs for corporate and school sectors; led product launch for Burlington English.",
+      ],
+    },
+    {
+      id: 2,
+      role: "Managing Director",
+      company: "Apjenius Pvt. Tech. Ltd.",
+      period: "2016 – 2019",
+      location: "Chennai",
+      highlights: [
+        "Developed, strengthened and managed teams to maximise company profitability.",
+      ],
+    },
+    {
+      id: 3,
+      role: "Higher Secondary Teacher",
+      company: "Pon Vidyashram",
+      period: "2009 – 2016",
+      location: "Chennai",
+      highlights: [
+        "Full-time teacher following student teaching CBSE CCE pattern.",
+        "Instructed all academic subjects while specialising in English for Higher Grades.",
+      ],
+    },
+  ],
+
+  skills: [
+    { name: "English Language Training", level: 98 },
+    { name: "Soft Skills Coaching", level: 95 },
+    { name: "Employability Training", level: 92 },
+    { name: "Curriculum Development", level: 90 },
+    { name: "Corporate Coaching", level: 88 },
+    { name: "Content Writing", level: 85 },
+    { name: "Public Speaking & Presentation", level: 93 },
+    { name: "Examining & Assessment", level: 96 },
+    { name: "Workshop Facilitation", level: 91 },
+    { name: "Cambridge Exam Prep", level: 97 },
+    { name: "Mock Interviews & Placement", level: 89 },
+    { name: "Online Teaching", level: 94 },
+  ],
+
+  education: [
+    {
+      id: 1,
+      degree: "Certificate in Teaching English as a Foreign Language (TEFL)",
+      institution: "APTII",
+      year: "2017",
+      location: "",
+    },
+    {
+      id: 2,
+      degree: "M.A. in English Literature",
+      institution: "Annamalai University",
+      year: "2014",
+      location: "Kanchipuram",
+    },
+    {
+      id: 3,
+      degree: "P.G. Diploma in Business Management",
+      institution: "",
+      year: "2001",
+      location: "Chennai",
+    },
+    {
+      id: 4,
+      degree: "Bachelor of Commerce",
+      institution: "Madras Christian College",
+      year: "1999",
+      location: "Chennai",
+    },
+    {
+      id: 5,
+      degree: "12th Grade",
+      institution: "The Indian High School",
+      year: "1996",
+      location: "Dubai",
+    },
+  ],
+};
