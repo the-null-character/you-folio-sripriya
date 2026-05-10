@@ -1,11 +1,11 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { resumeData } from "@/lib/resume-data";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
-const skills = resumeData.skills.map((s) => s.name);
+const skills = resumeData.skills;
 const COUNT = skills.length;
 
 /* Layout constants */
@@ -29,6 +29,7 @@ function getPos(idx: number, total: number, radius: number) {
 export default function Skills() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const [hovered, setHovered] = useState<{ name: string; desc: string } | null>(null);
 
   return (
     <section id="skills" className="py-20 px-5 sm:py-28 sm:px-6">
@@ -50,11 +51,12 @@ export default function Skills() {
         </ScrollReveal>
 
         {/* ── Spider map ── */}
-        <div ref={ref} className="w-full flex justify-center">
+        <div ref={ref} className="w-full flex flex-col items-center gap-6">
           <svg
             viewBox={`0 0 ${VIEWBOX} ${VIEWBOX}`}
             className="w-full max-w-[560px] sm:max-w-[640px]"
             aria-label="Skills mind map"
+            onMouseLeave={() => setHovered(null)}
           >
             <defs>
               <radialGradient id="spoke-grad" cx="0%" cy="50%" r="100%">
@@ -128,8 +130,10 @@ export default function Skills() {
             </motion.text>
 
             {/* Skill nodes */}
-            {skills.map((name, idx) => {
+            {skills.map((skill, idx) => {
+              const { name, desc } = skill;
               const { x, y } = getPos(idx, COUNT, ORBIT);
+              const isHovered = hovered?.name === name;
 
               /* Wrap long labels */
               const words = name.split(" ");
@@ -149,19 +153,25 @@ export default function Skills() {
                   initial={{ opacity: 0, scale: 0 }}
                   animate={inView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 0.4, delay: 0.3 + idx * 0.06, ease: "easeOut" }}
-                  style={{ transformOrigin: `${x}px ${y}px` }}
+                  style={{ transformOrigin: `${x}px ${y}px`, cursor: "pointer" }}
+                  onMouseEnter={() => setHovered({ name, desc })}
+                  onClick={() => setHovered(hovered?.name === name ? null : { name, desc })}
                 >
-                  {/* Dot */}
-                  <circle
-                    cx={x} cy={y} r={7}
-                    fill="var(--accent-2)"
-                    fillOpacity="0.9"
+                  {/* Invisible large hit area */}
+                  <circle cx={x} cy={y} r={22} fill="transparent" />
+
+                  {/* Dot — pulses when hovered */}
+                  <motion.circle
+                    cx={x} cy={y} r={isHovered ? 10 : 7}
+                    fill={isHovered ? "var(--accent)" : "var(--accent-2)"}
+                    fillOpacity="0.95"
                     filter="url(#glow)"
+                    transition={{ duration: 0.2 }}
                   />
                   <circle
-                    cx={x} cy={y} r={12}
+                    cx={x} cy={y} r={isHovered ? 18 : 12}
                     fill="var(--accent)"
-                    fillOpacity="0.1"
+                    fillOpacity={isHovered ? 0.2 : 0.1}
                   />
 
                   {/* Label */}
@@ -170,8 +180,8 @@ export default function Skills() {
                     y={line2 ? ly - 6 : ly + 4}
                     textAnchor="middle"
                     fontSize="9.5"
-                    fontWeight="600"
-                    fill="var(--foreground)"
+                    fontWeight={isHovered ? "700" : "600"}
+                    fill={isHovered ? "var(--accent)" : "var(--foreground)"}
                   >
                     {line1}
                   </text>
@@ -181,8 +191,8 @@ export default function Skills() {
                       y={ly + 8}
                       textAnchor="middle"
                       fontSize="9.5"
-                      fontWeight="600"
-                      fill="var(--foreground)"
+                      fontWeight={isHovered ? "700" : "600"}
+                      fill={isHovered ? "var(--accent)" : "var(--foreground)"}
                     >
                       {line2}
                     </text>
@@ -191,6 +201,41 @@ export default function Skills() {
               );
             })}
           </svg>
+
+          {/* ── Tooltip panel ── */}
+          <div className="w-full max-w-[560px] sm:max-w-[640px] min-h-[72px] flex items-center justify-center">
+            <AnimatePresence mode="wait">
+              {hovered ? (
+                <motion.div
+                  key={hovered.name}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.22, ease: "easeOut" }}
+                  className="glass rounded-2xl px-6 py-4 w-full text-center"
+                >
+                  <p className="text-sm font-bold mb-1" style={{ color: "var(--accent)" }}>
+                    {hovered.name}
+                  </p>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--muted)" }}>
+                    {hovered.desc}
+                  </p>
+                </motion.div>
+              ) : (
+                <motion.p
+                  key="hint"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="text-xs"
+                  style={{ color: "var(--muted)" }}
+                >
+                  Hover over a node to learn more
+                </motion.p>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </section>
