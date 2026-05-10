@@ -14,11 +14,15 @@ const CY = 300;          // SVG centre y
 const ORBIT = 210;       // spoke length (desktop)
 const VIEWBOX = 600;
 
+function r4(n: number) {
+  return Math.round(n * 10000) / 10000;
+}
+
 function getPos(idx: number, total: number, radius: number) {
   const angle = (idx / total) * 2 * Math.PI - Math.PI / 2;
   return {
-    x: CX + radius * Math.cos(angle),
-    y: CY + radius * Math.sin(angle),
+    x: r4(CX + radius * Math.cos(angle)),
+    y: r4(CY + radius * Math.sin(angle)),
   };
 }
 
@@ -66,7 +70,7 @@ export default function Skills() {
               </filter>
             </defs>
 
-            {/* Spokes — use path so pathLength works */}
+            {/* Spokes — drawn centre-outward using strokeDashoffset trick */}
             {skills.map((_, idx) => {
               const { x, y } = getPos(idx, COUNT, ORBIT);
               return (
@@ -77,9 +81,8 @@ export default function Skills() {
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   fill="none"
-                  pathLength={1}
                   initial={{ pathLength: 0, opacity: 0 }}
-                  animate={inView ? { pathLength: 1, opacity: 1 } : {}}
+                  animate={inView ? { pathLength: 1, opacity: 1 } : { pathLength: 0, opacity: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 + idx * 0.06, ease: "easeOut" }}
                 />
               );
@@ -111,27 +114,15 @@ export default function Skills() {
               style={{ transformOrigin: `${CX}px ${CY}px` }}
             />
             <motion.text
-              x={CX} y={CY - 8}
+              x={CX} y={CY + 4}
               textAnchor="middle"
               fontSize="11"
               fontWeight="700"
-              letterSpacing="0.5"
+              letterSpacing="1"
               fill="var(--accent)"
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ delay: 0.5 }}
-            >
-              SRIPRIYA
-            </motion.text>
-            <motion.text
-              x={CX} y={CY + 8}
-              textAnchor="middle"
-              fontSize="9"
-              fontWeight="500"
-              fill="var(--muted)"
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : {}}
-              transition={{ delay: 0.55 }}
             >
               EXPERTISE
             </motion.text>
@@ -149,8 +140,8 @@ export default function Skills() {
               /* Push label outward so it doesn't overlap the dot */
               const angle = (idx / COUNT) * 2 * Math.PI - Math.PI / 2;
               const labelR = ORBIT + 38;
-              const lx = CX + labelR * Math.cos(angle);
-              const ly = CY + labelR * Math.sin(angle);
+              const lx = r4(CX + labelR * Math.cos(angle));
+              const ly = r4(CY + labelR * Math.sin(angle));
 
               return (
                 <motion.g

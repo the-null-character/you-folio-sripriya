@@ -1,5 +1,5 @@
 export const resumeData = {
-  name: "Sripriya T",
+  name: "Sripriya",
   title: "ELT Specialist & Corporate Trainer",
   tagline: "Empowering learners through language, soft skills & professional development.",
   email: "sripreeya@hotmail.com",

@@ -37,7 +37,7 @@ export default function Navbar() {
           {/* Logo */}
           <a href="#hero" className="font-bold text-lg tracking-tight" style={{ color: "var(--foreground)" }}>
             <span className="gradient-text">ST</span>
-            <span className="ml-2 opacity-60 text-sm font-normal hidden sm:inline">Sripriya T</span>
+            <span className="ml-2 opacity-60 text-sm font-normal hidden sm:inline">Sripriya</span>
           </a>
 
           {/* Desktop links */}
