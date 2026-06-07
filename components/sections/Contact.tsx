@@ -51,7 +51,7 @@ export default function Contact() {
                 href={s.href}
                 target={undefined}
                 rel="noopener noreferrer"
-                className="glass rounded-2xl p-5 flex items-center gap-4 hover:shadow-lg transition-all duration-300 group text-left w-full"
+                className="liquid-glass rounded-2xl p-5 flex items-center gap-4 group text-left w-full"
               >
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors duration-300"

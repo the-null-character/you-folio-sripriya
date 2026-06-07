@@ -72,13 +72,16 @@ export default function Skills() {
               </filter>
             </defs>
 
-            {/* Spokes — drawn centre-outward using strokeDashoffset trick */}
+            {/* Spokes — drawn from edge of centre nucleus outward */}
             {skills.map((_, idx) => {
+              const angle = (idx / COUNT) * 2 * Math.PI - Math.PI / 2;
+              const startX = r4(CX + 46 * Math.cos(angle));
+              const startY = r4(CY + 46 * Math.sin(angle));
               const { x, y } = getPos(idx, COUNT, ORBIT);
               return (
                 <motion.path
                   key={idx}
-                  d={`M ${CX} ${CY} L ${x} ${y}`}
+                  d={`M ${startX} ${startY} L ${x} ${y}`}
                   stroke="url(#spoke-grad)"
                   strokeWidth="1.5"
                   strokeLinecap="round"
@@ -212,7 +215,7 @@ export default function Skills() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
                   transition={{ duration: 0.22, ease: "easeOut" }}
-                  className="glass rounded-2xl px-6 py-4 w-full text-center"
+                  className="liquid-glass rounded-2xl px-6 py-4 w-full text-center"
                 >
                   <p className="text-sm font-bold mb-1" style={{ color: "var(--accent)" }}>
                     {hovered.name}

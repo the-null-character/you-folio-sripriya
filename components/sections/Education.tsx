@@ -27,7 +27,7 @@ export default function Education() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {resumeData.education.map((edu, idx) => (
             <ScrollReveal key={edu.id} delay={idx * 0.07} direction="up">
-              <div className="glass rounded-2xl p-6 h-full flex flex-col gap-4 hover:shadow-lg transition-all duration-300 group">
+              <div className="liquid-glass rounded-2xl p-6 h-full flex flex-col gap-4 group">
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center"
                   style={{ background: "var(--accent)", opacity: 0.9 }}
