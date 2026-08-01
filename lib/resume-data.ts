@@ -7,7 +7,7 @@ export const resumeData = {
   location: "Chennai, India",
   linkedin: "https://www.linkedin.com/",
   github: "https://github.com/",
-  resumePdf: "/Sripriya-T.pdf",
+  resumePdf: "/Sripriya_CV_Aug_2026.pdf",
 
   about: `Experienced educator and corporate trainer specializing in English instruction, soft skills, and employability training. Skilled in curriculum development and Cambridge exam preparation, I work with diverse learners — from students to professionals. Passionate about creating a positive learning environment and empowering individuals for academic and career success.`,
 
