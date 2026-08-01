@@ -8,14 +8,16 @@ import { ChevronDown, Briefcase, MapPin, Calendar } from "lucide-react";
 
 const images = {
   1: "/media/sripriya-presenting-1.jpeg",
-  2: "/media/sripriya-presenting-2.jpeg",
-  3: "/media/sripriya-presenting-4.jpeg",
+  2: "/media/sripriya-presenting-5.jpeg",
+  3: "/media/sripriya-presenting-2.jpeg",
+  4: "/media/sripriya-presenting-4.jpeg",
 };
 
 const imageCaptions = {
   1: "Delivering a keynote session for Cambridge University Press & Assessment",
-  2: "Addressing delegates as the Managing Director of Apjenius",
-  3: "Leading interactive training sessions and academic instruction",
+  2: "Evaluating candidates and conducting Cambridge English Assessment sessions",
+  3: "Addressing delegates as the Managing Director of Apjenius",
+  4: "Leading interactive training sessions and academic instruction",
 };
 
 export default function Experience() {

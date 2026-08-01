@@ -11,6 +11,7 @@ const aboutImages = [
   "/media/sripriya-presenting-2.jpeg",
   "/media/sripriya-presenting-3.jpeg",
   "/media/sripriya-presenting-4.jpeg",
+  "/media/sripriya-presenting-5.jpeg",
 ];
 
 const aboutCaptions = [
@@ -18,6 +19,7 @@ const aboutCaptions = [
   "Product Launch Presentation",
   "Cambridge Examiner Training",
   "Interactive Workshop Facilitation",
+  "AI Pedagogy & ELT Conference",
 ];
 
 export default function About() {
