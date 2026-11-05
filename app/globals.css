@@ -95,6 +95,34 @@ a, button {
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 999px; }
 
+/* ── Modal Scrollbar (Prominent & High-contrast) ────────── */
+.modal-scrollbar {
+  overflow-y: auto !important;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) var(--surface-border);
+}
+
+.modal-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-track {
+  background: var(--surface-border);
+  border-radius: 999px;
+  margin: 12px 4px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 999px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-2);
+}
+
 /* ── Selection ───────────────────────────────────────────── */
 ::selection { background: var(--accent); color: white; }
 

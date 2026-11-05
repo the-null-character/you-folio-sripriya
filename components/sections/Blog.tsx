@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { blogPosts, type BlogPost } from "@/lib/blog-data";
@@ -12,6 +12,19 @@ function BlogModal({ post, onClose }: { post: BlogPost; onClose: () => void }) {
 
   const paragraphs = post.content.split("\n\n");
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [onClose]);
+
   return (
     <AnimatePresence>
       <motion.div
@@ -19,7 +32,7 @@ function BlogModal({ post, onClose }: { post: BlogPost; onClose: () => void }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-8"
+        className="fixed inset-0 z-[200] flex items-center justify-center p-3 sm:p-6 md:p-8"
         style={{ background: "rgba(0,0,0,0.65)", backdropFilter: "blur(12px)" }}
         onClick={onClose}
       >
@@ -29,36 +42,38 @@ function BlogModal({ post, onClose }: { post: BlogPost; onClose: () => void }) {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.94, y: 20 }}
           transition={{ duration: 0.35, ease: "easeOut" }}
-          className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto liquid-glass rounded-3xl p-6 sm:p-10 shadow-2xl"
+          className="relative w-full max-w-3xl max-h-[88vh] sm:max-h-[90vh] flex flex-col liquid-glass rounded-3xl shadow-2xl overflow-hidden"
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Close button */}
+          {/* Close button - pinned at top right */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full glass flex items-center justify-center hover:scale-110 transition-transform"
-            style={{ color: "var(--muted)" }}
+            className="absolute top-4 right-4 z-30 w-9 h-9 sm:w-10 sm:h-10 rounded-full glass flex items-center justify-center hover:scale-110 active:scale-95 transition-all shadow-md"
+            style={{ color: "var(--foreground)", background: "var(--surface)" }}
             aria-label="Close"
           >
             <X size={18} />
           </button>
 
-          {/* Event badge */}
-          <div className="flex flex-wrap gap-2 mb-4">
-            {post.tags.map((t) => (
-              <span
-                key={t}
-                className="text-[11px] font-semibold tracking-wide px-3 py-1 rounded-full"
-                style={{ background: "var(--accent)", color: "#fff", opacity: 0.9 }}
-              >
-                {t}
-              </span>
-            ))}
-          </div>
+          {/* Scrollable content container with prominent styled scrollbar */}
+          <div className="flex-1 overflow-y-auto modal-scrollbar p-6 sm:p-10 pr-6 sm:pr-8">
+            {/* Event badge */}
+            <div className="flex flex-wrap gap-2 mb-4 pr-12">
+              {post.tags.map((t) => (
+                <span
+                  key={t}
+                  className="text-[11px] font-semibold tracking-wide px-3 py-1 rounded-full"
+                  style={{ background: "var(--accent)", color: "#fff", opacity: 0.9 }}
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
 
-          {/* Title */}
-          <h2 className="text-2xl sm:text-3xl font-bold mb-2 leading-snug" style={{ color: "var(--foreground)" }}>
-            {post.title}
-          </h2>
+            {/* Title */}
+            <h2 className="text-2xl sm:text-3xl font-bold mb-2 leading-snug pr-10" style={{ color: "var(--foreground)" }}>
+              {post.title}
+            </h2>
 
           {/* Meta */}
           <div className="flex flex-wrap gap-4 text-sm mb-6" style={{ color: "var(--muted)" }}>
@@ -158,7 +173,8 @@ function BlogModal({ post, onClose }: { post: BlogPost; onClose: () => void }) {
               );
             })}
           </div>
-        </motion.div>
+        </div>
+      </motion.div>
       </motion.div>
     </AnimatePresence>
   );
