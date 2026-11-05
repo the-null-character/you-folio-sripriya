@@ -12,6 +12,43 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "cambridge-tkt-workshop-apr-2026",
+    title: "Decoding Teaching Knowledge Test (TKT): Moving from Instinctive Practice to Informed Pedagogy",
+    date: "4 April 2026",
+    event: "Cambridge English — Online Workshop",
+    venue: "Online — Zoom",
+    tags: ["Cambridge English", "TKT", "Teacher Training", "Pedagogy", "Professional Development"],
+    coverImage: "/media/blog/cambridge-tkt-workshop-apr-2026/tkt-workshop-poster.jpeg",
+    images: [
+      {
+        src: "/media/blog/cambridge-tkt-workshop-apr-2026/tkt-workshop-poster.jpeg",
+        caption: "Workshop poster — Decoding Teaching Knowledge Test (TKT) with Cambridge",
+      },
+      {
+        src: "/media/blog/cambridge-tkt-workshop-apr-2026/cambridge-presence.jpeg",
+        caption: "Empowering educators through Cambridge English pathways — 'Where Your World Grows'",
+      },
+    ],
+    content: `What an invigorating two hours! Hosting the **Cambridge English Online Workshop on \"Decoding Teaching Knowledge Test (TKT)\"** on 4th April 2026 was an absolute pleasure. Connecting with passionate educators from diverse backgrounds always reignites my belief in the transformative power of purposeful teaching. 🌟
+
+Many teachers step into the classroom driven by instinct, intuition, and sheer dedication. But there comes a pivotal moment in every educator’s journey when instinct needs the backing of a structured framework. That was the central heartbeat of our session: how can teachers move from **instinctive practice to informed, intentional pedagogy**?
+
+We embarked on a comprehensive deep-dive across all **five core TKT modules**:
+- **Module 1**: Language concepts, terms, and the fundamentals of language learning and teaching
+- **Module 2**: Lesson planning and strategic resource selection that respects diverse learning paces
+- **Module 3**: Proactive classroom management, interaction patterns, and creating a supportive learning environment
+- **CLIL (Content and Language Integrated Learning)**: Bridging subject matter and English acquisition smoothly
+- **Young Learners**: Developmental psychology, activity design, and fostering early communicative confidence
+
+Beyond exam preparation and test mechanics, we explored the deeper value of **Cambridge TKT certification**. It serves as an internationally recognised benchmark of teaching competence — validating classroom expertise, strengthening credentials, and unlocking global pathways in schools and international language institutions.
+
+What touched me most was the feedback from teachers during our Q&A. One teacher shared: *\"For years I felt I was doing the right things in class, but now I finally have the vocabulary and pedagogical rationale to explain why.\"* That shift in confidence is precisely what professional development is all about.
+
+A huge thank you to **Cambridge English** for curating this platform and to all the dedicated educators who spent their Saturday afternoon learning, sharing, and growing together. Here is to elevating classroom practice and building tomorrow's language leaders! 🚀
+
+#CambridgeEnglish #TKT #TeachingKnowledgeTest #TeacherTraining #ELT #Pedagogy #ProfessionalDevelopment #LanguageTeaching #WhereYourWorldGrows`,
+  },
+  {
     id: "celc-webinar-sep-2026",
     title: "Advancing English Learning Outcomes for a Better Tomorrow",
     date: "3 September 2026",
