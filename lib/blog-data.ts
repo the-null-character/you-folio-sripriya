@@ -12,6 +12,42 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "celc-webinar-sep-2026",
+    title: "Advancing English Learning Outcomes for a Better Tomorrow",
+    date: "3 September 2026",
+    event: "Cambridge English Leadership Conference (CELC) — Follow-up Webinar",
+    venue: "Online — Zoom",
+    tags: ["Cambridge English", "CELC", "AI in Education", "ELT", "Webinar"],
+    coverImage: "/media/blog/celc-webinar-sep-2026/webinar-poster.jpeg",
+    images: [
+      {
+        src: "/media/blog/celc-webinar-sep-2026/webinar-poster.jpeg",
+        caption: "Featured speaker at the Cambridge CELC follow-up webinar alongside Helen Kenyon",
+      },
+      {
+        src: "/media/blog/celc-webinar-sep-2026/celc-backdrop.jpeg",
+        caption: "At the Cambridge English Leadership Conference 2026 — 'Where Your World Grows'",
+      },
+    ],
+    content: `I am absolutely thrilled to share that I had the privilege of co-presenting at the **Cambridge English Leadership Conference (CELC) Follow-up Webinar** on 3rd September 2026! 🎉
+
+Joining hands with **Helen Kenyon**, Product Manager at Cambridge English, made this an especially enriching experience. It was a true meeting of minds — a practitioner's perspective from the classroom merging with the product vision of one of the world's most trusted assessment bodies.
+
+Our session, **"Advancing English Learning Outcomes for a Better Tomorrow"**, picked up beautifully from the energy of CELC and took it into the digital living rooms of educators across South Asia. We explored what it really means to put the learner at the centre — not as a platitude, but as a practical design principle that shapes every lesson, every assessment, and every interaction.
+
+A significant part of our conversation revolved around **digital tools in the classroom** — how to use them thoughtfully rather than compulsively. Technology should amplify the teacher's intent, not replace it. We talked about tools that spark curiosity, tools that give meaningful feedback, and tools that make the invisible (a student's understanding) visible.
+
+The piece I found most resonant — and most timely — was the conversation around **responsible AI integration in learning**. AI is not going away, and that is not a threat; it is an invitation. An invitation for educators to sharpen their craft, to ask better questions, to design tasks that demand genuine thinking over imitation. I believe the best teachers will always be the ones who help students think, not just respond.
+
+We also had a wonderful discussion on the role of **Cambridge English Qualifications** as meaningful milestones — not just certificates, but genuine celebrations of a learner's progress and perseverance. When a student earns a Cambridge qualification, they are not just passing a test; they are stepping into a larger world.
+
+The engagement from participants was phenomenal, the questions were insightful, and the energy in the virtual room reminded me once again why I love being part of the ELT community. Thank you, **Cambridge English South Asia**, for this incredible platform and for championing conversations that matter.
+
+Here's to a better tomorrow — one learner at a time. 🌟
+
+#CambridgeEnglish #CELC #CambridgeEnglishLeadershipConference #AI #EnglishEducation #ELT #DigitalClassroom #LearnersFirst #CELC2026`,
+  },
+  {
     id: "edfest-coimbatore-2026",
     title: "Developing Effective Assessment Tools for English in the Digital Age",
     date: "21 November 2026",
